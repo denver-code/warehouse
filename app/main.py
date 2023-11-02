@@ -39,9 +39,4 @@ async def on_startup():
     )
 
 
-@app.get("/")
-def root(user: dict = Depends(auth_required)):
-    return {"message": f"Hello World from protected, {user['username']}!"}
-
-
 app.include_router(api_router)

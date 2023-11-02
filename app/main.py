@@ -6,6 +6,7 @@ from api.api_router import api_router
 from app.core.config import settings
 from app.core.db import db
 from app.models.warehouse import *
+from os import path as os_path, mkdir
 
 
 def get_application():
@@ -23,6 +24,9 @@ def get_application():
 
 
 app = get_application()
+
+if not os_path.exists("static"):
+    mkdir("static")
 
 
 @app.on_event("startup")
